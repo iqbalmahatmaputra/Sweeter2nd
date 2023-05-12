@@ -143,7 +143,7 @@ def api_valid():
         payload = jwt.decode(token_receive, SECRET_KEY, algorithms=["HS256"])
         # jika tidak ada masalah, kita seharusnya melihat
                 # payload terdekripsi muncul di terminal kita!
-        print(payload)
+        # print(payload)
 
         # payload terdekripsinya seharusnya berisi id user
                 # kita bisa menggunakan id ini untuk mencari data user
