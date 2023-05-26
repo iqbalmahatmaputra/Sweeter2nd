@@ -7,7 +7,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
-    <link rel="stylesheet" href="../static/style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" type="text/css">
     <!-- Bulma CSS -->
     <link
       rel="stylesheet"
@@ -79,6 +79,12 @@ function is_password(asValue) {
             }
           },
         });
+      }
+
+      function clearInputs(){
+        $("#input-username").val("");
+        $("#input-password").val("");
+        $("#input-password2").val("");
       }
 
       function sign_up() {
@@ -197,7 +203,22 @@ function is_password(asValue) {
       }
     </script>
   </head>
-  <body>
+  <body  class="has-navbar-fixed-top">
+    <nav
+      class="navbar is-fixed-top is-white"
+      role="navigation"
+      aria-label="main navigation"
+    >
+      <div class="navbar-brand">
+        <a class="navbar-item" href="/">
+          <img src="{{ url_for('static', filename='logo.png') }}" />
+          <strong
+            class="is-sparta logo-text"
+            >SWEETER</strong
+          >
+        </a>
+      </div>
+    </nav>
     <section class="hero is-white">
       <div
         class="hero-body has-text-centered"
@@ -299,6 +320,12 @@ function is_password(asValue) {
                     onclick="sign_up()"
                   >
                     Sign Up
+                  </button>
+                  <button
+                    class="level-item button is-sparta is-outlined"
+                    onclick="clearInputs()"
+                  >
+                    Clear
                   </button>
                   <button
                     class="level-item button is-sparta is-outlined"
